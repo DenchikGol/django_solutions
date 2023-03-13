@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% block title %}<title> Solutions </title>{% endblock title %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="top-menu">
+            <a class="btn-home" href="{% url 'problems' %}"></a>
+            <div id="search">
+                <form action="{% url 'search_results' %}" method="get">
+                    <input name="q" type="text" id="problems-search" placeholder="Search">
+                </form>
+            </div>
+        </div>
+        <div id="maim-menu">
+        {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>

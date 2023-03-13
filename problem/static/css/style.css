@@ -1,0 +1,102 @@
+:root {
+    --main-container-bg-color: #eee;
+    --main-border-color: #628DB6;
+    --main-solution-color: #c9f0dd;
+    --main-card-bg-color: whitesmoke;
+    --hover-color: rgb(175, 175, 175);
+}
+
+#top-menu{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    justify-content: space-between;
+}
+
+.btn-home{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border:1px solid var(--main-border-color);
+    height: 30px;
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-home::before{
+    content: url('https://api.iconify.design/material-symbols/garage-home-outline.svg?width=25');
+}
+
+.btn-home:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+}
+
+#problems-search{
+    background: url('https://api.iconify.design/ic/baseline-search.svg') no-repeat center center / contain;
+    background-position: 5px 0px;
+    width: 50%;
+    height: 10px;
+    font-size: 14px;
+    padding: 10px 0px 10px 40px;
+    border: 1px solid var(--main-border-color);
+    position: relative;
+}
+
+.problem-container{
+    display: flex;
+    background-color: var(--main-container-bg-color);
+    padding: 5px;
+    border: 1px solid var(--main-border-color);
+    border-radius: 3px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.problem{
+    display: flex;
+    width: 350px;
+    background-color: var(--main-card-bg-color);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.problem-name a{
+    border-bottom: 1px solid var(--main-border-color);
+}
+
+.problem-solution{
+    background-color: var(--main-solution-color);
+    min-height: 80px;
+    padding: 5px;
+}
+
+.symptoms-container{
+    background-color: var(--main-border-color);
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.symptom{
+    background-color: var(--main-card-bg-color);
+    margin: 5px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;    
+}
+
+.symptom-name{
+    font-size: larger;
+    
+}

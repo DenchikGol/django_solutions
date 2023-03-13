@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1>{{ symptom.name }}<a href="{{ symptom.problem.get_absolute_url }}">({{ symptom.problem }})</a></h1>
+
+    <div class="symptom-description">
+        {{ symptom.description }}
+    </div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% if problem_list %}
+        <div class="problem-container">
+        {% for problem in problem_list %}
+            <div class="problem">
+                <div class="problem-name">
+                    <a href="{{ problem.get_absolute_url }}">{{ problem.name }}</a>
+                </div>
+                <div class="problem-description">
+                    {{ problem.description }}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock content %}

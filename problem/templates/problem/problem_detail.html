@@ -1,0 +1,25 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1> {{ problem.name }}</h1>
+
+    
+    <div class="symptoms-container">
+        {% for symptom in problem.symptom_set.all %}
+        <div class="symptom">
+            <div class="symptom-name">
+                <a href="{{ symptom.get_absolute_url }}">{{ symptom.name }}</a>
+            </div>
+            <div class="symptom-description">
+                Описание: {{ symptom.description }}
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    
+    <h3> Решение </h3>
+    <div class="problem-solution">
+        {{ problem.solution }}
+    </div>
+{% endblock content %}
