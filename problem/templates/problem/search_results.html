@@ -1,15 +1,16 @@
 {% extends 'base_generic.html' %}
 
+{% block content %}
 <h1> Результаты поиска </h1>
-{% if problem_list %}
+{% if object_list %}
     <div class="problem-container">
-        {% for problem in problem_list %}
+        {% for object in object_list %}
             <div class="problem">
                 <div class="problem-name">
-                    <a href="{{ problem.get_absolute_url }}">{{ problem.name }}</a>
+                    <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
                 </div>
                 <div class="problem-description">
-                    {{ problem.description }}
+                    {{ object.description }}
                 </div>
             </div>
         {% endfor %}
@@ -17,3 +18,4 @@
 {% else %}
     <h3>Ничего не найдено</h3>
 {% endif %}
+{% endblock content %}

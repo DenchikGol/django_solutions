@@ -9,6 +9,7 @@ class ProblemListView(generic.ListView):
     model = Problem
 
 
+
 class SearchResultsView(generic.ListView):
     model = Problem
     template_name = "search_results.html"
