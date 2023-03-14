@@ -20,6 +20,36 @@
 {% block comment %}
     <div class="comment-tree">
         {% comment %} Авторизацию добавлю, поправлю! {% endcomment %}
-        
+        {% if user.is_authenticated %}
+            <h2 class="subtitle is-4">Комментарии</h2>
+            <form method="post" class="mb-6">
+                {% csrf_token %}
+                <span class="username">{{ user }}</span>
+                <div class="comment-text">
+                {{ form }}
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-success">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        {% endif %}
+
+        <div class="comment-container">
+            {% for comment in comments %}
+                <div class="comment">
+                    <span class="comment-author">{{ comment.user }}</span>
+                    <div class="comment-body">
+                        {{ comment.body }}
+                    </div>
+                    <div class="comment-footer">
+                        <span class="comment-date">
+                            {{ comment.created|date:"d m Y" }}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock comment %}
