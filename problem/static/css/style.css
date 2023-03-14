@@ -4,6 +4,7 @@
     --main-solution-color: #c9f0dd;
     --main-card-bg-color: whitesmoke;
     --hover-color: rgb(175, 175, 175);
+    --comment-color: rgb(125, 225, 255);
 }
 
 #top-menu{
@@ -98,5 +99,75 @@
 
 .symptom-name{
     font-size: larger;
-    
+}
+
+/* comments */
+
+.comment-tree{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 15px;
+    background-color: var(--main-container-bg-color);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mb-6{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+}
+
+.username, .comment-author{
+    padding-left: 20px;
+    background-color: var(--main-border-color);
+    color: white;
+    font-size: larger;
+}
+
+#id_body{
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+    resize: none;
+    word-wrap: break-word;
+    overflow: hidden;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.control{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.comment-body{
+    min-height: 60px;
+    padding: 5px;
+    background-color: white;
+    border-bottom:1px solid var(--main-border-color);
+}
+
+.comment-footer{
+    display: flex;
+    min-height: 20px;
+    justify-content: flex-end;
+    background-color: white;
 }
