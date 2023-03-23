@@ -1,0 +1,52 @@
+<div class="comment-tree">
+    <h2 class="subtitle is-4">Комментарии:</h2>
+    <span class="comment-count">Количество комментариев: {{ all_comment }}</span>
+    {% if request.user.is_authenticated %}
+        <form action="/add_comment" method="post" class="mb-6">
+            {% csrf_token %}
+            <input type='hidden' value="{{ obj.pk}}" name='id'>
+            <input type='hidden' value="{{ content_type }}" name='con_type'>
+            <span class="username">{{ request.user }}</span>
+            <div class="comment-text">
+            {{ form }}
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-success">Отправить</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+
+    <div class="comment-container">
+        {% for comment in comments %}
+
+            <div class="comment">
+                <span class="comment-author">{{ comment.user }}</span>
+                <div class="comment-body">
+                    {{ comment.body.strip }}
+                </div>
+                <div class="comment-footer">
+                    <div class="ld-container" data-id="{{ comment.pk }}">
+                        {% if request.user in comment.user_like.all %}
+                            <span class="likes selected">{{ comment.like }} </span>
+                        {% else %}
+                        <span class="likes">{{ comment.like }} </span>
+                        {% endif %}
+                        {% if request.user in comment.user_dislike.all %}
+                            <span class="dislikes selected">{{ comment.dislike }}</span>
+                        {% else %}
+                            <span class="dislikes">{{ comment.dislike }}</span>
+                        {% endif %}
+                    </div>
+                    {% if request.user == comment.user or request.user.admin %}
+                        <span class="comment-edit">Редактировать</span>
+                    {% endif %}                    
+                    <span class="comment-date">
+                        {{ comment.created|date:"d m Y" }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -163,11 +163,38 @@
     padding: 5px;
     background-color: white;
     border-bottom:1px solid var(--main-border-color);
+    white-space: pre-line;
 }
 
 .comment-footer{
     display: flex;
     min-height: 20px;
-    justify-content: flex-end;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
     background-color: white;
+}
+
+.likes, .dislikes{
+    cursor: pointer;
+}
+
+.likes::before{
+    content: url('https://api.iconify.design/uiw/like-o.svg');
+}
+
+.likes.selected::before{
+    content: url('https://api.iconify.design/uiw/like-o.svg?color=green');
+}
+
+.dislikes::before{
+    content: url('https://api.iconify.design/uiw/dislike-o.svg');
+}
+
+.dislikes.selected::before{
+    content: url('https://api.iconify.design/uiw/dislike-o.svg?color=red');
+}
+
+.comment-edit{
+    cursor: pointer;
 }

@@ -17,9 +17,8 @@
     {% endif %}
 {% endblock content %}
 
-{% block comment %}
+{% comment %} {% block comment %}
     <div class="comment-tree">
-        {% comment %} Авторизацию добавлю, поправлю! {% endcomment %}
         {% if user.is_authenticated %}
             <h2 class="subtitle is-4">Комментарии</h2>
             <form method="post" class="mb-6">
@@ -52,4 +51,4 @@
             {% endfor %}
         </div>
     </div>
-{% endblock comment %}
+{% endblock comment %} {% endcomment %}

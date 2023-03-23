@@ -23,3 +23,7 @@
         {{ problem.solution }}
     </div>
 {% endblock content %}
+{% block comment %}
+    {% load comments %}
+    {% add_comment problem request %}
+{% endblock comment %}

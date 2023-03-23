@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% block extrahead %}
+        <script type="text/javascript" src="{% static 'js/solution.js' %}"></script>
+        {% endblock extrahead %}
     </head>
     <body>
         <div id="top-menu">
@@ -15,6 +18,13 @@
                     <input name="q" type="text" id="problems-search" placeholder="Search">
                 </form>
             </div>
+            <span class="login-auto">
+                {% if user.is_authenticated %}
+                    <a href="">Выйти</a>
+                {% else %}
+                    <a href="">Войти</a>
+                {% endif %}
+            </span>
         </div>
         <div id="maim-menu">
         {% block content %}{% endblock content %}

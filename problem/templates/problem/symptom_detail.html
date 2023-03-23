@@ -7,3 +7,7 @@
         {{ symptom.description }}
     </div>
 {% endblock content %}
+{% block comment %}
+    {% load comments %}
+    {% add_comment symptom request%}
+{% endblock comment %}
