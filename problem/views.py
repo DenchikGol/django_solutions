@@ -107,3 +107,12 @@ def edit_comment(request, pk):
         comment.save()
 
     return HttpResponse(status=200)
+
+
+def delete_comment(request, pk):
+    if request.method == "DELETE":
+        comment = Comment.objects.get(id=pk)
+        comment.delete()
+
+    return HttpResponse(status=200)
+    

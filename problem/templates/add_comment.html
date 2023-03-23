@@ -41,7 +41,8 @@
                     </div>
                     {% if request.user == comment.user or request.user.admin %}
                         <span class="comment-edit">Редактировать</span>
-                    {% endif %}                    
+                        <span class="comment-delete">Удалить</span>
+                    {% endif %}                
                     <span class="comment-date">
                         {{ comment.created|date:"d m Y" }}
                     </span>

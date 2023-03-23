@@ -45,7 +45,7 @@ async function getLikes(pk) {
     });
 
     if (!response.ok){
-        alert("Неа, нельзя!");
+        alert("Неа, нельзя! Зарегистрируйтесь или войдите");
     }
 }
 
@@ -59,7 +59,7 @@ async function getDislikes(pk) {
     });
 
     if (!response.ok){
-        alert("Неа, нельзя!");
+        alert("Неа, нельзя! Зарегистрируйтесь или войдите");
     }
 }
 
@@ -123,3 +123,30 @@ document.addEventListener("click", function(e) {
         editComment(el, pk);
     }
 })
+
+
+// delete comment
+
+document.addEventListener("click", function(e) {
+    if (e.target.matches(".comment-delete")) {
+        let pk = e.target.parentNode.firstElementChild.dataset.id;
+        deleteComment(pk);
+    }
+})
+
+
+async function deleteComment(pk) {
+    let item = confirm("Вы уверены?");
+
+    if (item) {
+        const response = await fetch(`${baseUri}/comment_delete/${pk}`, {
+            method: "DELETE",
+            headers: {
+                "X-CSRFToken": getCookie("csrftoken"),
+            }
+        })
+        if (response.ok) {
+            location.reload();
+        }
+    }
+}
